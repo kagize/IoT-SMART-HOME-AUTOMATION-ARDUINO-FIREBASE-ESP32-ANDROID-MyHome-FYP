@@ -124,7 +124,7 @@ public class TodayUsageFragment extends Fragment {
                             tempbill = tempenergy * tempm1000;
                         }
                         tenergy.setText(df.format(tempenergy) + " " + "kWh");
-                        tbill.setText(df.format(tempbill) + " " + "₹");
+                        tbill.setText(df.format(tempbill) + " " + "Tsh");
                         tcurrent.setText(df.format(tempcurrent) + " " + "A");
                         tpower.setText(df.format(temppower) + " " + "W");
                         tvoltage.setText(tempvoltage.toString() + " " + "V");

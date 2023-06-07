@@ -26,8 +26,6 @@ import com.example.myhome.electricity.TabLayoutMeterFragment;
 import com.example.myhome.miscellaneous.PrivacyPolicyActivity;
 import com.example.myhome.reportissue.ReportProblemActivity;
 import com.example.myhome.miscellaneous.SettingsActivity;
-import com.example.myhome.plant.PlantFragment;
-import com.example.myhome.water.WaterWaveFragment;
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.google.android.material.navigation.NavigationView;
@@ -49,9 +47,8 @@ public class BottomNavBarActivity extends AppCompatActivity  implements Navigati
     private SwitchCompat drawerSwitch;
 
     private Fragment fragment1 = new DashboardFragment();
-    private Fragment fragment2 = new WaterWaveFragment();
-    private Fragment fragment3 = new TabLayoutMeterFragment();
-    private Fragment fragment4 = new PlantFragment();
+    private Fragment fragment2 = new TabLayoutMeterFragment();
+
 
     private FragmentManager fm = getSupportFragmentManager();
     private Fragment active = fragment1;
@@ -129,8 +126,7 @@ public class BottomNavBarActivity extends AppCompatActivity  implements Navigati
             fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).commit();
         }
 
-        fm.beginTransaction().add(R.id.fragment_container, fragment4, "4").hide(fragment4).commit();
-        fm.beginTransaction().add(R.id.fragment_container, fragment3, "3").hide(fragment3).commit();
+
         fm.beginTransaction().add(R.id.fragment_container, fragment2, "2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.fragment_container, fragment1, "1").commit();
 
@@ -145,9 +141,10 @@ public class BottomNavBarActivity extends AppCompatActivity  implements Navigati
                         mp.start();
                         break;
 
+
                     case R.id.l_item_elect:
-                        fm.beginTransaction().hide(active).show(fragment3).commit();
-                        active = fragment3;
+                        fm.beginTransaction().hide(active).show(fragment2).commit();
+                        active = fragment2;
                         toolbar.setTitle("ELECTRICITY");
                         mp.start();
                         break;

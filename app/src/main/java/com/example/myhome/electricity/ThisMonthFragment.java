@@ -153,7 +153,7 @@ public class ThisMonthFragment extends Fragment {
                             sumBill = tempoc + (sumEnergy * tempm1000);
                         }
                         tenergy.setText(df.format(sumEnergy) + " " + "kWh");
-                        tbill.setText(df.format(sumBill) + " " + "₹");
+                        tbill.setText(df.format(sumBill) + " " + "Tsh");
                         tcurrent.setText(df.format(sumCurrent) + " " + "A");
                         tpower.setText(df.format(sumPower) + " " + "W");
                     } else {

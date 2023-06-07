@@ -18,7 +18,7 @@
                 android:gravity="center"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/mazzardlbolditalic"
-                android:text="Settings"
+                android:text="@string/settings"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
                 android:textSize="28sp"
@@ -26,10 +26,11 @@
 
             <ImageView
                 android:id="@+id/epsettings_rep"
-                android:layout_below="@+id/i_s"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_200sdp"
-                android:src="@drawable/epsettings"/>
+                android:layout_below="@+id/i_s"
+                android:layout_marginTop="-7dp"
+                android:src="@drawable/epsettings" />
 
             <soup.neumorphism.NeumorphCardView
                 android:id="@+id/pcs1"
@@ -75,7 +76,7 @@
                                 android:fontFamily="@font/mazzardlbolditalic"
                                 android:gravity="center"
                                 android:showText="true"
-                                android:text="ELECTRICITY CHARGES"
+                                android:text="@string/electricity_charges"
                                 android:textAlignment="center"
                                 android:textColor="@color/textColor"
                                 android:textSize="24sp"
@@ -118,7 +119,7 @@
                                                 android:fontFamily="@font/mazzardlbolditalic"
                                                 android:gravity="center"
                                                 android:showText="true"
-                                                android:text="Units"
+                                                android:text="@string/units"
                                                 android:textAlignment="center"
                                                 android:textColor="@color/textColor"
                                                 android:textSize="24sp"
@@ -147,7 +148,7 @@
                                                 android:fontFamily="@font/mazzardlbolditalic"
                                                 android:gravity="center"
                                                 android:showText="true"
-                                                android:text="101-300"
+                                                android:text="@string/_101_300"
                                                 android:textColor="@color/textColor"
                                                 android:textSize="22sp"
                                                 android:textStyle="bold" />
@@ -161,7 +162,7 @@
                                                 android:fontFamily="@font/mazzardlbolditalic"
                                                 android:gravity="center"
                                                 android:showText="true"
-                                                android:text="301-500"
+                                                android:text="@string/_301_500"
                                                 android:textColor="@color/textColor"
                                                 android:textSize="22sp"
                                                 android:textStyle="bold" />
@@ -224,7 +225,7 @@
                                                 android:fontFamily="@font/mazzardlbolditalic"
                                                 android:gravity="center"
                                                 android:showText="true"
-                                                android:text="Prices"
+                                                android:text="Prices (Tsh)"
                                                 android:textAlignment="center"
                                                 android:textColor="@color/textColor"
                                                 android:textSize="24sp"
@@ -236,7 +237,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="@dimen/_6sdp"
                                                 android:backgroundTint="@color/textColor"
-                                                android:drawableLeft="@mipmap/rupee"
+                                                android:drawableLeft="@drawable/default_edit_text_background"
                                                 android:drawablePadding="@dimen/_10sdp"
                                                 android:hint="0-100"
                                                 android:inputType="numberDecimal"
@@ -252,7 +253,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="@dimen/_6sdp"
                                                 android:backgroundTint="@color/textColor"
-                                                android:drawableLeft="@mipmap/rupee"
+                                                android:drawableLeft="@drawable/smsp_transparent_color"
                                                 android:drawablePadding="@dimen/_10sdp"
                                                 android:hint="101-300"
                                                 android:inputType="numberDecimal"
@@ -268,7 +269,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="@dimen/_6sdp"
                                                 android:backgroundTint="@color/textColor"
-                                                android:drawableLeft="@mipmap/rupee"
+                                                android:drawableLeft="@drawable/transition_background_drawable_home"
                                                 android:drawablePadding="@dimen/_10sdp"
                                                 android:hint="301-500"
                                                 android:inputType="numberDecimal"
@@ -284,7 +285,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="@dimen/_6sdp"
                                                 android:backgroundTint="@color/textColor"
-                                                android:drawableLeft="@mipmap/rupee"
+                                                android:drawableLeft="@drawable/transition_background_drawable_home"
                                                 android:drawablePadding="@dimen/_10sdp"
                                                 android:hint="501-1000"
                                                 android:inputType="numberDecimal"
@@ -300,7 +301,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="@dimen/_6sdp"
                                                 android:backgroundTint="@color/textColor"
-                                                android:drawableLeft="@mipmap/rupee"
+                                                android:drawableLeft="@drawable/transition_background_drawable_home"
                                                 android:drawablePadding="@dimen/_10sdp"
                                                 android:hint="More than 1000"
                                                 android:inputType="numberDecimal"
@@ -315,7 +316,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="@dimen/_6sdp"
                                                 android:backgroundTint="@color/textColor"
-                                                android:drawableLeft="@mipmap/rupee"
+                                                android:drawableLeft="@drawable/transition_background_drawable_elect"
                                                 android:drawablePadding="@dimen/_10sdp"
                                                 android:hint="0ther Charges"
                                                 android:inputType="numberDecimal"
@@ -349,144 +350,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:neumorph_backgroundColor="@color/textColor" />
-                </LinearLayout>
-            </soup.neumorphism.NeumorphCardView>
-
-            <soup.neumorphism.NeumorphCardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/pcs1"
-                android:layout_margin="4dp"
-                android:layout_marginTop="50dp"
-                app:neumorph_backgroundColor="@color/backgroundColor"
-                app:neumorph_shadowColorDark="@color/strokecol"
-                app:neumorph_shadowColorLight="@color/strokecol"
-                app:neumorph_shadowElevation="6dp"
-                app:neumorph_shapeAppearance="@style/CustomShapeAppearance"
-                app:neumorph_shapeType="flat"
-                app:neumorph_strokeWidth="18dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TableLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:stretchColumns="0">
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:drawablePadding="5dp"
-                                android:fontFamily="@font/mazzardlbolditalic"
-                                android:gravity="center"
-                                android:showText="true"
-                                android:text="WATER TANK"
-                                android:textAlignment="center"
-                                android:textColor="@color/textColor"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
-
-                        </TableRow>
-                    </TableLayout>
-
-                    <TableLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:stretchColumns="0">
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                                <TableLayout
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:stretchColumns="0">
-
-                                    <TableRow
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:orientation="horizontal">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginLeft="12dp"
-                                                android:layout_marginTop="12dp"
-                                                android:layout_marginRight="12dp"
-                                                android:layout_marginBottom="26dp"
-                                                android:background="@color/backgroundColor"
-                                                android:drawablePadding="10dp"
-                                                android:fontFamily="@font/mazzardlbolditalic"
-                                                android:gravity="center"
-                                                android:showText="true"
-                                                android:text="Total Height of \n the Water \n Tank [in cm]"
-                                                android:textAlignment="center"
-                                                android:textColor="@color/textColor"
-                                                android:textSize="22sp"
-                                                android:textStyle="bold" />
-
-                                            <EditText
-                                                android:id="@+id/wl"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginTop="32sp"
-                                                android:backgroundTint="@color/textColor"
-                                                android:drawableLeft="@mipmap/length"
-                                                android:drawablePadding="@dimen/_10sdp"
-                                                android:inputType="number"
-                                                android:maxLines="1"
-                                                android:numeric="integer"
-                                                android:shadowColor="@color/textColor"
-                                                android:textColor="@color/textColor"
-                                                android:textColorHint="@color/textColor"
-                                                android:textSize="20sp" />
-
-                                        </LinearLayout>
-
-                                    </TableRow>
-                                </TableLayout>
-
-                        </TableRow>
-                    </TableLayout>
-
-                    <soup.neumorphism.NeumorphButton
-                        android:id="@+id/buttonSW1"
-                        style="@style/Widget.Neumorph.Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/mazzardlbolditalic"
-                        android:text="UPDATE"
-                        android:textColor="@color/backgroundColor"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:neumorph_backgroundColor="@color/textColor"
-                        app:neumorph_shadowColorDark="@color/strokecol"
-                        app:neumorph_shadowColorLight="@color/strokecol" />
                 </LinearLayout>
             </soup.neumorphism.NeumorphCardView>
 

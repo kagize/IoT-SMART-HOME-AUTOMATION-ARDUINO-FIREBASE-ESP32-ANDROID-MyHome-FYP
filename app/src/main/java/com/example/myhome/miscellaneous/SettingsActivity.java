@@ -32,8 +32,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SettingsActivity extends AppCompatActivity {
-    private EditText ZtH, HtT, TtF, FtT, MtT, OC, wl;
-    private Button buttonSE1, buttonSW1;
+    private EditText ZtH, HtT, TtF, FtT, MtT, OC; //wl;
+    private Button buttonSE1; //buttonSW1;
     private Double ZtoH, HtoT, TtoF, FtoT, MtoT, rOC;
     private Long swl;
     private Long vwl;
@@ -55,12 +55,9 @@ public class SettingsActivity extends AppCompatActivity {
         FtT = findViewById(R.id.FtT);
         MtT = findViewById(R.id.MtT);
         OC = findViewById(R.id.OC);
-        wl = findViewById(R.id.wl);
         buttonSE1 = findViewById(R.id.buttonSE1);
-        buttonSW1 = findViewById(R.id.buttonSW1);
 
         database.child("electricity").child("charges").addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
 
@@ -98,23 +95,22 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        database.child("water").addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onDataChange(final DataSnapshot dataSnapshot) {
+ //       database.child("water").addListenerForSingleValueEvent(new ValueEventListener() {
+ //           @Override
+ //           public void onDataChange(final DataSnapshot dataSnapshot) {
 
-                if(dataSnapshot.exists()) {
-                    Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
-                        swl = (Long) map.get("distance");
-                        wl.setText(swl.toString());
-                    }
-            }
+//                if(dataSnapshot.exists()) {
+//                    Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
+//                        swl = (Long) map.get("distance");
+//                        wl.setText(swl.toString());
+//                    }
+//            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.d("User", databaseError.getMessage());
-            }
-        });
+  //          @Override
+ //           public void onCancelled(DatabaseError databaseError) {
+ //               Log.d("User", databaseError.getMessage());
+  //          }
+ //       });
 
     }
 
@@ -137,7 +133,6 @@ public class SettingsActivity extends AppCompatActivity {
                     vOC = Double.parseDouble(OC.getText().toString());
                 }
                 database.child("electricity/charges").addValueEventListener(new ValueEventListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
                     public void onDataChange(final DataSnapshot dataSnapshot) {
 
@@ -177,42 +172,41 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        buttonSW1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mp.start();
-                if (validateInputDistance(wl.getText().toString())) {
-                    vwl = Long.parseLong(wl.getText().toString());
-                }
-                database.child("water").addValueEventListener(new ValueEventListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.N)
-                    @Override
-                    public void onDataChange(final DataSnapshot dataSnapshot) {
+        //buttonSW1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mp.start();
+//                if (validateInputDistance(wl.getText().toString())) {
+//                    vwl = Long.parseLong(wl.getText().toString());
+  //              }
+    //            database.child("water").addValueEventListener(new ValueEventListener() {
+      //              @Override
+        //            public void onDataChange(final DataSnapshot dataSnapshot) {
 
-                        if (dataSnapshot.exists()) {
-                            if (validateInputDistance(wl.getText().toString())) {
-                                dataSnapshot.getRef().child("distance").setValue(vwl).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        DynamicToast.makeSuccess(SettingsActivity.this, "Updated Successfully!", 10).show();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                DynamicToast.makeError(SettingsActivity.this, "Error Occured!", 10).show();
-                                            }
-                                });
-                            }
-                        }
-                    }
+          //              if (dataSnapshot.exists()) {
+            //                if (validateInputDistance(wl.getText().toString())) {
+              //                  dataSnapshot.getRef().child("distance").setValue(vwl).addOnSuccessListener(new OnSuccessListener<Void>() {
+                //                    @Override
+                  //                  public void onSuccess(Void aVoid) {
+                    //                    DynamicToast.makeSuccess(SettingsActivity.this, "Updated Successfully!", 10).show();
+                      //              }
+                        //        }).addOnFailureListener(new OnFailureListener() {
+                          //                  @Override
+                            //                public void onFailure(@NonNull Exception e) {
+                              //                  DynamicToast.makeError(SettingsActivity.this, "Error Occured!", 10).show();
+                                //            }
+                    //            });
+                      //      }
+          //              }
+            //        }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.d("User", databaseError.getMessage());
-                    }
-                });
-            }
-        });
+  //                  @Override
+    //                public void onCancelled(DatabaseError databaseError) {
+      //                  Log.d("User", databaseError.getMessage());
+        //            }
+          //      });
+        //    }
+      //  });
 
     }
 
@@ -276,10 +270,10 @@ public class SettingsActivity extends AppCompatActivity {
             ZtH.setError("This field can't be empty");
             return false;
         }
-        if(!TextUtils.isDigitsOnly(a)){
-            wl.setError("Enter an numeric value");
-            return false;
-        }
+      //  if(!TextUtils.isDigitsOnly(a)){
+         //   wl.setError("Enter an numeric value");
+           // return false;
+       // }
         return true;
     }
 }

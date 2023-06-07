@@ -51,16 +51,6 @@
             app:bt_shape="@drawable/transition_background_drawable_home"
             app:bt_title="@string/home" />
 
-<!--        <com.gauravk.bubblenavigation.BubbleToggleView-->
-<!--            android:id="@+id/l_item_water"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:bt_colorActive="@color/blue_active"-->
-<!--            app:bt_colorInactive="@color/blue_inactive"-->
-<!--            app:bt_icon="@mipmap/raindrop"-->
-<!--            app:bt_shape="@drawable/transition_background_drawable_raindrop"-->
-<!--            app:bt_title="@string/water" />-->
-
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/l_item_elect"
             android:layout_width="wrap_content"
@@ -70,16 +60,6 @@
             app:bt_icon="@mipmap/elect"
             app:bt_shape="@drawable/transition_background_drawable_elect"
             app:bt_title="@string/electricity" />
-
-<!--        <com.gauravk.bubblenavigation.BubbleToggleView-->
-<!--            android:id="@+id/l_item_leaf"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:bt_colorActive="@color/green_active"-->
-<!--            app:bt_colorInactive="@color/green_active"-->
-<!--            app:bt_icon="@mipmap/leaf"-->
-<!--            app:bt_shape="@drawable/transition_background_drawable_leaf"-->
-<!--            app:bt_title="@string/plant" />-->
 
     </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
 
