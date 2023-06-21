@@ -51,6 +51,8 @@
             app:bt_shape="@drawable/transition_background_drawable_home"
             app:bt_title="@string/home" />
 
+
+
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/l_item_elect"
             android:layout_width="wrap_content"
@@ -60,6 +62,7 @@
             app:bt_icon="@mipmap/elect"
             app:bt_shape="@drawable/transition_background_drawable_elect"
             app:bt_title="@string/electricity" />
+
 
     </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
 

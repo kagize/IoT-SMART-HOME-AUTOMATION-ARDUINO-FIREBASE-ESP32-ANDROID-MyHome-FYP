@@ -1,17 +1,15 @@
 package com.example.myhome.chatbot;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.myhome.R;
-import com.example.myhome.authentication.RegistrationActivity;
 import com.example.myhome.chatbot.adapters.ChatAdapter;
 import com.example.myhome.chatbot.helpers.SendMessageInBg;
 import com.example.myhome.chatbot.interfaces.BotReply;
@@ -42,8 +40,8 @@ public class ChatBotActivity extends AppCompatActivity implements BotReply {
     private SessionsClient sessionsClient;
         private SessionName sessionName;
         private final String uuid = UUID.randomUUID().toString();
-        private final String TAG = "chatbotactivity";
 
+    @SuppressLint("NotifyDataSetChanged")
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -55,44 +53,42 @@ public class ChatBotActivity extends AppCompatActivity implements BotReply {
             chatAdapter = new ChatAdapter(messageList, this);
             chatView.setAdapter(chatAdapter);
 
-            btnSend.setOnClickListener(new View.OnClickListener() {
-                @SuppressLint("NotifyDataSetChanged")
-                @Override public void onClick(View view) {
-                    String message = editMessage.getText().toString().trim();
-                    if (!message.isEmpty()) {
-                        messageList.add(new Message(message, false));
-                        editMessage.setText("");
-                        sendMessageToBot(message);
-                        Objects.requireNonNull(chatView.getAdapter()).notifyDataSetChanged();
-                        Objects.requireNonNull(chatView.getLayoutManager())
-                                .scrollToPosition(messageList.size() - 1);
-                    } else {
-                        DynamicToast.makeWarning(ChatBotActivity.this, "Enter the Query!", 10).show();
-                    }
+            btnSend.setOnClickListener(view -> {
+                String message = editMessage.getText().toString().trim();
+                if (!message.isEmpty()) {
+                    messageList.add(new Message(message, false));
+                    editMessage.setText("");
+                    sendMessageToBot(message);
+                    Objects.requireNonNull(chatView.getAdapter()).notifyDataSetChanged();
+                    Objects.requireNonNull(chatView.getLayoutManager())
+                            .scrollToPosition(messageList.size() - 1);
+                } else {
+                    DynamicToast.makeWarning(ChatBotActivity.this, "Enter the Query!", 10).show();
                 }
             });
 
-//            setUpBot();
+            setUpBot();
         }
 
-//        private void setUpBot() {
-//            try {
-//                InputStream stream = this.getResources().openRawResource(R.raw.credential);
-//                GoogleCredentials credentials = GoogleCredentials.fromStream(stream)
-//                        .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-platform"));
-//                String projectId = ((ServiceAccountCredentials) credentials).getProjectId();
-//
-//                SessionsSettings.Builder settingsBuilder = SessionsSettings.newBuilder();
-//                SessionsSettings sessionsSettings = settingsBuilder.setCredentialsProvider(
-//                        FixedCredentialsProvider.create(credentials)).build();
-//                sessionsClient = SessionsClient.create(sessionsSettings);
-//                sessionName = SessionName.of(projectId, uuid);
-//
-//                Log.d(TAG, "projectId : " + projectId);
-//            } catch (Exception e) {
-//                Log.d(TAG, "setUpBot: " + e.getMessage());
-//            }
-//        }
+        private void setUpBot() {
+            String TAG = "chatbotactivity";
+            try {
+                InputStream stream = getResources().openRawResource(R.raw.credentials);
+                GoogleCredentials credentials = GoogleCredentials.fromStream(stream)
+                        .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-platform"));
+                String projectId = ((ServiceAccountCredentials) credentials).getProjectId();
+
+                SessionsSettings.Builder settingsBuilder = SessionsSettings.newBuilder();
+                SessionsSettings sessionsSettings = settingsBuilder.setCredentialsProvider(
+                        FixedCredentialsProvider.create(credentials)).build();
+                sessionsClient = SessionsClient.create(sessionsSettings);
+                sessionName = SessionName.of(projectId, uuid);
+
+                Log.d(TAG, "projectId : " + projectId);
+            } catch (Exception e) {
+                Log.d(TAG, "setUpBot: " + e.getMessage());
+            }
+        }
 
         private void sendMessageToBot(String message) {
             QueryInput input = QueryInput.newBuilder()

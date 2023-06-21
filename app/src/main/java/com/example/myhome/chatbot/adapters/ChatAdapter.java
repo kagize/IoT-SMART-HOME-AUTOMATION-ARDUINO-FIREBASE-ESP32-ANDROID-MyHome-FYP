@@ -1,5 +1,6 @@
 package com.example.myhome.chatbot.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,8 +39,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
         String message = messageList.get(position).getMessage();
         boolean isReceived = messageList.get(position).getIsReceived();
         if(isReceived){
-            //yaha pe send wala hide hota hai and time bhi set hota hai nahi toh duble ayega iske liye visibe and gone likha hai
-            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            //Here, the 'send' button is hidden, and the time is also set. Otherwise, it will appear twice, so it is written as 'visible' and 'gone'.
+            @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("HH:mm");
             Date date = new Date();
             String dateformatted = dateFormat.format(date);
             holder.messageReceive.setVisibility(View.VISIBLE);
@@ -50,7 +51,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
             holder.messageSend.setVisibility(View.GONE);
             holder.messageReceive.setText(message);
         }else {
-            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("HH:mm");
             Date date = new Date();
             String dateformatted = dateFormat.format(date);
             holder.messageSend.setVisibility(View.VISIBLE);
