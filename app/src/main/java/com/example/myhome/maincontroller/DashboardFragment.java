@@ -22,6 +22,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.myhome.AppControl.MainActivity;
 import com.example.myhome.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -350,4 +351,7 @@ public class DashboardFragment extends Fragment {
 
         return myFragmentView;
     }
+
+//    public void setMainActivity(MainActivity mainActivity) {
+//    }
 }

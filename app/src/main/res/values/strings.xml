@@ -9,6 +9,9 @@
     <string name="confirm_pattern">Confirm your screen lock PIN , Pattern or Password</string>
     <string name="unlock_failed">Failed to Unlock the app.</string>
     <string name="security_device_cancelled">Device is not secure or user cancel the request.</string>
+    <string name="button_on_text">ON</string>
+    <string name="button_off_text">OFF</string>
+    <string name="button_status_text">STATUS</string>
 
     <string name="privacypolicy">Privacy Policy</string>
     <string name="i1"> built the MyHome app as a Commercial app. This SERVICE is provided and is intended for use as is.
@@ -88,4 +91,6 @@ This policy is effective as of 2020-05-01</string>
     <string name="units">Units</string>
     <string name="_101_300">101-300</string>
     <string name="_301_500">301-500</string>
+    <string name="turn_off">TURN OFF</string>
+    <string name="turn_on">TURN ON</string>
 </resources>

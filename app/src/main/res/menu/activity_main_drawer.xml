@@ -11,10 +11,15 @@
             android:id="@+id/nav_auto"
             android:icon="@mipmap/plugin"
             android:title="Auto ON-OFF" />
+
         <item
             android:id="@+id/nav_settings"
             android:icon="@mipmap/settings"
-            android:title="Settings" />
+            android:title="Settings"/>
+        <item
+            android:id="@+id/nav_bluetooth"
+            android:icon="@android:drawable/stat_sys_data_bluetooth"
+            android:title="Bluetooth"/>
         <item
             android:id="@+id/nav_cp"
             android:icon="@mipmap/changekey"

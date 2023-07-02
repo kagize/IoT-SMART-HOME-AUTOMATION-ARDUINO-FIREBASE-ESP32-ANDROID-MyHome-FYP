@@ -10,11 +10,13 @@ import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
+import com.example.myhome.AppControl.MainActivity;
 import com.example.myhome.authentication.ChangePasswordActivity;
 import com.example.myhome.authentication.EditProfileActivity;
 import com.example.myhome.chatbot.ChatBotActivity;
@@ -131,6 +133,7 @@ public class BottomNavBarActivity extends AppCompatActivity  implements Navigati
         fm.beginTransaction().add(R.id.fragment_container, fragment1, "1").commit();
 
         bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public void onNavigationChanged(View view, int position) {
                 switch (view.getId()) {
@@ -174,6 +177,11 @@ public class BottomNavBarActivity extends AppCompatActivity  implements Navigati
             case R.id.nav_auto:
                 Intent auto = new Intent(getApplicationContext(), AutoOnOffActivity.class);
                 startActivity(auto);
+                mp.start();
+                break;
+            case R.id.nav_bluetooth:
+                Intent bluetooth =new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(bluetooth);
                 mp.start();
                 break;
             case R.id.nav_settings:
